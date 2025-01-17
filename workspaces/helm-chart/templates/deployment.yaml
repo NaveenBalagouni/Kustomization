@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm-deployment
+  namespace: argo-workflows
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helm-deployment
+  template:
+    metadata:
+      labels:
+        app: helm-deployment
+    spec:
+      serviceAccountName: argo-workflows-sa  # Service account used for the Helm deployment
+      containers:
+        - name: helm
+          image: "alpine/helm:3.6.3"
+          imagePullPolicy: Always
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              echo "Deploying with Helm..."
+              apk update && apk add --no-cache git
+              # Clone the Helm chart repository
+              git clone https://github.com/your-repository/helm-chart.git /workspaces/helm-chart
+              # Verify contents of the cloned chart
+              echo "Contents of /workspaces/helm-chart:"
+              ls -al /workspaces/helm-chart
+              # Run the Helm upgrade/install command
+              helm upgrade --install my-helm /workspaces/helm-chart --namespace argo-workflows
+          volumeMounts:
+            - name: helm-chart-volume
+              mountPath: /workspaces
+      volumes:
+        - name: helm-chart-volume
+          emptyDir: {}
