@@ -24,15 +24,15 @@ spec:
               echo "Deploying with Helm..."
               apk update && apk add --no-cache git
               # Clone the Helm chart repository
-              git clone https://github.com/your-repository/helm-chart.git /workspaces/helm-chart
+              git clone https://github.com/your-repository/helm-chart.git /workspace/helm-chart
               # Verify contents of the cloned chart
-              echo "Contents of /workspaces/helm-chart:"
-              ls -al /workspaces/helm-chart
+              echo "Contents of /workspace/helm-chart:"
+              ls -al /workspace/helm-chart
               # Run the Helm upgrade/install command
-              helm upgrade --install my-helm /workspaces/helm-chart --namespace argo-workflows
+              helm upgrade --install my-helm /workspace/helm-chart --namespace argo-workflows
           volumeMounts:
             - name: helm-chart-volume
-              mountPath: /workspaces
+              mountPath: /workspace
       volumes:
         - name: helm-chart-volume
           emptyDir: {}
