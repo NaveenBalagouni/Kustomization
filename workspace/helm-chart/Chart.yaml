@@ -1,12 +1,6 @@
 apiVersion: v2
 name: my-helm
 description: A Helm chart for Kubernetes
-
-# A chart can be either an 'application' or a 'library' chart.
 type: application
-
-# The version of the chart.
 version: 0.1.0
-
-# The version number of the application being deployed.
 appVersion: "1.16.0"
