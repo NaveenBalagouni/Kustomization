@@ -30,9 +30,3 @@ spec:
               ls -al /workspace/helm-chart
               # Run the Helm upgrade/install command
               helm upgrade --install my-helm /workspace/helm-chart --namespace argo-workflows
-          volumeMounts:
-            - name: helm-chart-volume
-              mountPath: /workspace
-      volumes:
-        - name: helm-chart-volume
-          emptyDir: {}
