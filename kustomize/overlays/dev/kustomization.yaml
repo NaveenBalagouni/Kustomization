@@ -1,3 +1,12 @@
-bases:
-  - ../../base  # This should correctly point to the base directory
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: kustomize-app
 
+bases:
+- ../../base
+
+namespace: kustomize-naveen
+
+nameSuffix: -dev
+
+patchesStrategicMerge:
+- deployment_env.yaml
