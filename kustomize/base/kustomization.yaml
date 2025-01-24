@@ -10,3 +10,4 @@ nameSuffix: -dev
 
 patchesStrategicMerge:
 - deployment_base.yaml
+- servic-base.yaml
