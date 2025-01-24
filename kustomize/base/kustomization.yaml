@@ -9,4 +9,4 @@ namespace: kustomize-naveen
 nameSuffix: -dev
 
 patchesStrategicMerge:
-- deployment_env.yaml
+- deployment_base.yaml
