@@ -6,3 +6,6 @@ bases:
 
 namespace: kustomize-naveen
 nameSuffix: -prod
+
+patchesStrategicMerge:
+- deployment_prod.yaml
