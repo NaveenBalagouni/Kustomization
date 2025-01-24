@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/NaveenBalagouni/Kustomization.git'  # Git repository with Kustomize configs
     targetRevision: HEAD  # The branch to track (e.g., main or master)
-    path: 'kustomize/overlays/dev'  # Path to dev overlay or use prod overlay
+    path: 'kustomize/overlays'  # Path to dev overlay or use prod overlay
     kustomize:
       namePrefix: "kustomize-"  # Optionally add a prefix to all resources
   destination:
