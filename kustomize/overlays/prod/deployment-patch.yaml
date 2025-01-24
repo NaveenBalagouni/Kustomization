@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kustomize-app
+spec:
+  replicas: 3  # Scale up for the prod environment
+  template:
+    spec:
+      containers:
+      - name: kustomize-app
+        image: quay.io/opsmxpublic/kustomize:v2-prod  # Use a different image for prod
